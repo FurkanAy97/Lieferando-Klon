@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Lieferando</title>
+</head>
+<body onload="render()">
+    <header id="header">
+        <img src="img/Logo.png" class="logo"> 
+        <h3>Speisekarte</h3>
+        <div class="header-right">
+            <img src="img/GermanFlag.png" class="GermanFlag">
+            <img src="img/menu-4-24.ico">
+        </div>
+    </header>
+
+    <div class="main-body">
+        <div class="left-body">
+            <img src="img/titlePicture.jpg" class="title-picture">
+            <div class="profilePicture-container">
+                <div class="profilePicture-background">
+                    <img src="img/profile-picture.png" class="profile-picture">
+                </div>
+            </div>
+            <div class="title-description">
+                <div class="title">
+                    <h2 class="title-name">Kebab Pizzeria - Heidelberg</h1>
+                        <div class="title-icons">
+                            <div class="icon">
+                                <img src="img/info-2-24.ico">
+                            </div>
+                            <div class="icon">
+                                <img src="img/favorite-3-24.ico">
+                            </div>
+                        </div>
+                </div>
+                <div class="review">
+                    <img src="img/star-24.ico">
+                    <img src="img/star-24.ico">
+                    <img src="img/star-24.ico">
+                    <img src="img/star-24.ico">
+                    <img src="img/star-24.ico">
+                    <a href="#">855 Bewertungen</a>
+                </div>
+                <div class="Lieferinformation">
+                    <img src="img/time-8-16.ico">
+                    <p>10-40min</p>
+                    <img src="img/motorcycle-24.ico">
+                    <p>2,00€</p>
+                    <img src="img/shopping-bag-16.ico">
+                    <p>min 15,00€</p>
+                </div>
+                <p class="stamp-card-info">
+                    Bei diesem Restaurant kannst du Stempel sammeln. 
+                    Stelle beim Bestellabschluss bitte sicher, dass du dich für unseren Newsletter 
+                    angemeldet hast, um deine Stempel per E-Mail zu erhalten.
+                </p>
+            </div>
+            <div class="food-category-container">
+                <div class="food-category">
+                    <a href="#pizza">Pizza</a>
+                    <a href="#burger">Burger</a>
+                    <a href="#döner">Döner</a>
+                    <a href="#pasta">Pasta</a>
+                </div>
+            </div>
+            <div class="item-card-body">
+                <div class="pizza" id="pizza">
+                    <h2 class="category-title">Pizza</h2>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Margherita</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Margherita', 6.50, 1)">
+                        </div>
+                        <div class="food-price">6,50€</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Pizza Salami</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Pizza Salami', 7.50, 1)">
+                        </div>
+                        <div class="food-price">7,50€</div>
+                    </div>
+                </div>
+                <div class="burger" id="burger">
+                    <h2 class="category-title">Burger</h2>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Cheese Burger</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Cheese Burger', 8.50, 1)">
+                        </div>
+                        <div class="food-price">8,50€</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Chicken Burger</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Chicken Burger', 9.00, 1)">
+                        </div>
+                        <div class="food-price">9,00€</div>
+                    </div>
+                </div>
+                <div class="döner" id="döner">
+                    <h2 class="category-title">Döner</h2>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Döner Groß</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Döner Groß', 6.00, 1)">
+                        </div>
+                        <div class="food-price">6,00€</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Yufka Döner</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Yufka Döner', 7.00, 1)">
+                        </div>
+                        <div class="food-price">7,00€</div>
+                    </div>
+                </div>
+                <div class="pasta" id="pasta">
+                    <h2 class="category-title">Pasta</h2>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Pasta 4-Formaggi</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Pasta 4-Formaggi', 8.00, 1)">
+                        </div>
+                        <div class="food-price">8,00€</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="food-name-container">
+                            <div class="food-name">Pasta Bolognese</div>
+                            <img src="img/plus-2-24.ico" onclick="addToBasket('Pasta Bolognese', 8.50, 1)">
+                        </div>
+                        <div class="food-price">8,50€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightBody">
+            <h2><b>Warenkorb</b></h2> <br>
+            <div id="shopping-basket"></div>
+            <div id="total-container" class="total-container">
+                <div class="sum-container">
+                    <span>Zwischensumme</span>
+                    <div id="sum"></div>
+                </div>
+                <div class="sum-container">
+                    <span>Lieferkosten</span>
+                    <div>2,00€</div>
+                </div>
+                <div class="sum-container">
+                    <span>Gesamt</span>
+                    <div id="total-sum"></div>
+                </div>
+            </div>
+            <button id="order-button" class="order-button"></button>
+        </div>
+    </div>
+
+    <div id="basketButton" class="order-button" onclick="openMobileBasket()"></div>
+
+    <div class="mobileBasketOverlay d-none" id="mobileBasketOverlay">
+        <div class="mobileBasketBody">
+            <div class="overlayHeader">
+                <h2>Warenkorb</h2>
+                <img src="img/x-mark-24.ico" onclick="closeMobileBasket()">
+            </div>
+            <div id="shopping-basket-mobile"></div>
+            <div id="total-container-mobile" class="total-container">
+                <div class="sum-container">
+                    <span>Zwischensumme</span>
+                    <div id="sum-mobile"></div>
+                </div>
+                <div class="sum-container">
+                    <span>Lieferkosten</span>
+                    <div>2,00€</div>
+                </div>
+                <div class="sum-container">
+                    <span>Gesamt</span>
+                    <div id="total-sum-mobile"></div>
+                </div>
+            </div>
+            <button id="basketButton-mobile" class="order-button-mobile"></button>
+        </div>
+    </div>
+
+    
+
+</body>
+
+<footer>
+    <div class="footerLeft"><img src="img/Logo.png" alt="Logo"></div>
+    <div class="footerRight">
+        <a href="#">Impressum</a>
+        <a href="#">AGB</a>
+        <a href="#">Datenschutz</a>
+    </div>
+</footer>
+</html>
