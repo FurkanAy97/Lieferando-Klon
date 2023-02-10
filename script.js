@@ -7,15 +7,6 @@ let shoppingBasket = [{
 }];
 
 
-/* window.onscroll = function() {
-     let rightBody = document.getElementById('rightBody');
-    if(window.scrollY > 0){
-        rightBody.style = 'top: 0';
-    } else {
-        rightBody.style = 'top: 96px';
-    } 
-}  */
-
 function render(){
     let shoppingBasketContainer = document.getElementById('shopping-basket');
     let shoppingBasketContainerMobile = document.getElementById('shopping-basket-mobile');
