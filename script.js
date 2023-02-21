@@ -7,6 +7,15 @@ let shoppingBasket = [{
 }];
 
 
+/* window.onscroll = function() {
+     let rightBody = document.getElementById('rightBody');
+    if(window.scrollY > 0){
+        rightBody.style = 'top: 0';
+    } else {
+        rightBody.style = 'top: 96px';
+    } 
+}  */
+
 function render(){
     let shoppingBasketContainer = document.getElementById('shopping-basket');
     let shoppingBasketContainerMobile = document.getElementById('shopping-basket-mobile');
@@ -15,7 +24,7 @@ function render(){
     shoppingBasketContainerMobile.innerHTML = ''; 
     for (let i = 0; i < shoppingBasket[0]['foodName'].length; i++) {
         const foodName = shoppingBasket[0]['foodName'][i];
-        const price = shoppingBasket[0]['prices'][i].toLocaleString();
+        const price = shoppingBasket[0]['prices'][i];
         const amount = shoppingBasket[0]['amount'][i];
         shoppingBasketContainer.innerHTML += shoppingBasketContainerHTML(foodName, price, amount);
         shoppingBasketContainerMobile.innerHTML += shoppingBasketContainerHTML(foodName, price, amount);
@@ -55,17 +64,24 @@ function checkIfMobileBasketEmpty(){
 
 
 function shoppingBasketContainerHTML(foodName, price, amount){
+    // Convert price to a number with 2 decimal places
+    const formattedPrice = parseFloat(price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+
     return `
     <div class="basket-item">
         <div class="basketRow1">
             <div class="amount">${amount}</div>
             <div class="itemName"><b>${foodName}</b></div>
-            <div class="itemPrice">${price}€</div>
-            <div class="deleteButton"><img src="img/delete-24.ico" onclick="deleteItem('${foodName}', ${price})"></div>
+            <div class="itemPrice">${formattedPrice}€</div>
+            <div class="deleteButton"><img src="img/delete-24.ico" onclick="deleteItem('${foodName}', ${formattedPrice})"></div>
         </div>
     </div>
     `;
 }
+
+
+
 
 
 function emptyBasketHTML(){
@@ -80,7 +96,7 @@ function emptyBasketHTML(){
 
 
 function addToBasket(name, price, amount){
-    let isItemExistent = checkIfItemExistent(name);
+    let isItemExistent = checkIfItemExistent(name); 
     if (isItemExistent) {
         let index = shoppingBasket[0]['foodName'].indexOf(name);
         let currentPrice = shoppingBasket[0]['prices'][index];
@@ -133,9 +149,9 @@ function updateShoppingBasket(){
     for (let i = 0; i < shoppingBasket[0]['prices'].length; i++) {
         sum += shoppingBasket[0]['prices'][i];
     }
-    document.getElementById('sum').innerHTML = sum.toLocaleString() + '€';
+    document.getElementById('sum').innerHTML = parseFloat(sum).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }); + '€';
     document.getElementById('sum-mobile').innerHTML = sum.toLocaleString() + '€';
-    let totalSum = (sum + 2).toLocaleString() + '€';
+    let totalSum = parseFloat(sum + 2).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }); + '€';
     document.getElementById('total-sum').innerHTML = totalSum;
     document.getElementById('total-sum-mobile').innerHTML = totalSum;
     updateOrderButton(totalSum);
